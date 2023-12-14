@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+class Singleton
+{
+private:
+    static int var;
+    static Singleton* instance;
+private:
+    Singleton()
+    {
+        cout << "Ctor is calling" << endl;
+    }
+    Singleton(const Singleton& obj) = delete;
+    Singleton& operator=(Singleton& obj) = delete;
+public:
+    static Singleton* getInstance()
+    {
+        if (instance == nullptr)
+        {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+    void display()
+    {
+        cout << "Hello from Singleton class" << endl;
+    }
+};
+    int Singleton::var = 0;
+    Singleton* Singleton::instance = nullptr;
+
+int main()
+{
+    Singleton* ptr = Singleton::getInstance();
+    ptr->display();
+    Singleton* ptr1 = Singleton::getInstance();
+
+    std::cout << "Hello World!\n";
+}
