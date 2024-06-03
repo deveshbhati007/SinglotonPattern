@@ -25,10 +25,7 @@ public:
     {
         cout << "Hello from Singleton class" << endl;
     }
-void hello()
-{
-cout<<"Hello world<<endl;
-};
+
     int Singleton::var = 0;
     Singleton* Singleton::instance = nullptr;
 
